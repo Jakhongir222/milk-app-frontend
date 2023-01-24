@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { MilkInterface } from './interface'
+import './MilkProducts.css'
+import milkImage from './milk.png'
 
 export default function MilkProducts () {
 
     const [products, setProducts] = useState<MilkInterface[]>([]);
-
     const [isLoading, setLoading] = useState(false)
     const baseUrl = 'http://localhost:8080/milk';
 
@@ -20,14 +21,14 @@ export default function MilkProducts () {
     if(isLoading) return <p>Loading</p>
     if(!products) return <p>There are no Milk</p> 
 
-
   return (
-    <div>
+    <div className='milk-container'>
         {products.map((product) => (
-            <div key={product.id}>
-                <h2>{product.name}</h2>
-                <p>{product.type}</p>
-                <p>{product.storage}</p>
+            <div key={product.id} className='milk-card' >
+                <img className= "milk-image" src={milkImage}/>
+                <div className= "milk-name">{product.name}</div>
+                <div className= "milk-type">{product.type}</div>
+                <div className= "milk-storage">{product.storage + " liters"}</div>
             </div>))}
     </div>
   )
