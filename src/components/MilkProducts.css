@@ -1,0 +1,51 @@
+.milk-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 35px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.search-input {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    width: 15%;
+}
+
+.milk-card {
+    border: 1px solid #ccc;
+    margin: 15px;
+    margin-top: 60px;
+    box-shadow: 2px 2px 5px #ccc;
+    border-radius: 5px;
+    width: 320px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+
+  .milk-image {
+    width: 320px;
+    height: 260px;
+    display: block;
+    background-color: rgb(234, 234, 234);
+}
+
+.milk-name {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.milk-type {
+    color: rgb(144, 141, 141);
+    margin-left: 10px;
+}
+
+.milk-storage {
+    display: flex;
+    color: rgb(245, 209, 161);
+    font-weight: bold;
+    justify-content: flex-end;
+    margin: 10px;
+}
