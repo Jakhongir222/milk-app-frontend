@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { MilkInterface } from './interface'
 import './MilkProducts.css'
 import milkImage from './milk.png'
+import { navigate } from '@reach/router'
+import MilkDetails from './MilkDeatails'
+
 
 export default function MilkProducts () {
     const [products, setProducts] = useState<MilkInterface[]>([]);
@@ -22,6 +25,10 @@ export default function MilkProducts () {
             })
         setLoading(false)
     }, [])
+
+    const navigateSpecificProductHandler = (id: string) => {
+    navigate(`/products/${id}`);
+  };
     
 
     if(isLoading) return <p>Loading</p>
@@ -38,31 +45,22 @@ export default function MilkProducts () {
                 placeholder="Search by name" 
                 value={search} 
                 onChange={e => setSearch(e.target.value)}
-                className="search-input"
-            />
+                className="search-input"/>
             <button className="filter-button" onClick={() => setShowTypes(!showTypes)}>Filter by type</button>
             {showTypes && (
                 <div className="types-container">
                     {types.map(type => (
-                        <div 
-                            key={type} 
-                            className="type"
-                            onClick={() => setFilter(type)}
-                        >
+                        <div key={type} className="type" onClick={() => setFilter(type)}>
                             {type}
-                        </div>
-                    ))}
-                </div>
-            )}
+                        </div>))}
+                </div>)}  
             {filteredProducts.map((product) => (
-                <div key={product.id} className='milk-card' >
+                <a key={product.id} className='milk-card' onClick={() => navigate(`/milk/${product.id}`)}>
                     <img className= "milk-image" src={milkImage}/>
                     <div className= "milk-name">{product.name}</div>
                     <div className= "milk-type">{product.type}</div>
                     <div className= "milk-storage">{product.storage + " liters"}</div>
-                </div>))}
+                </a>))}
         </div>
-      )
-    
-    
+      ) 
 }
