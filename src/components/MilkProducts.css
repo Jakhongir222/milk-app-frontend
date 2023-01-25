@@ -1,34 +1,70 @@
 .milk-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-left: 35px;
-    justify-content: space-between;
-    position: relative;
-}
-
-.search-input {
-    position: absolute;
-    top: 15px;
-    left: 35px;
-    width: 15%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    margin: 60px;
 }
 
 .milk-card {
     border: 1px solid #ccc;
-    margin: 15px;
-    margin-top: 60px;
     box-shadow: 2px 2px 5px #ccc;
     border-radius: 5px;
-    width: 320px;
+    width: 250px;
     background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  }
+}
 
-  .milk-image {
-    width: 320px;
-    height: 260px;
+.milk-image {
+    width: 250px;
+    height: 250px;
     display: block;
     background-color: rgb(234, 234, 234);
+}
+
+.search-input {
+    position: absolute;
+    top: 110px;
+    left: 35px;
+    width: 15%;
+}
+
+.filter-button {
+    position: absolute;
+    top: 110px;
+    right: 35px;
+    width: 11%;
+    background-color: white;
+}
+
+.types-container {
+    position: absolute;
+    top: 135px;
+    right: 35px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.type {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 20px -10px;
+}
+
+.type:hover {
+    background-color: #f5f5f5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 40px -20px;
+}
+
+.type.active {
+    background-color: #f5f5f5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 40px -20px;
 }
 
 .milk-name {
