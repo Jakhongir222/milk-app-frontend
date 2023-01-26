@@ -3,7 +3,7 @@ import { MilkInterface } from './interface'
 import './MilkProducts.css'
 import milkImage from './milk.png'
 import { navigate } from '@reach/router'
-import MilkDetails from './MilkDeatails'
+import MilkDetails from './MilkDetails'
 
 
 export default function MilkProducts () {
