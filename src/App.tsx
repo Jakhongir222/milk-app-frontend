@@ -9,9 +9,9 @@ function App() {
        <header>
        <div className='header'>THE MILK STORE</div>
       </header>
-      <MilkProducts />
     <BrowserRouter>
       <Routes>
+        <Route path='/milk' element={<MilkProducts />}  />
         <Route path='/milk/:id' element={<MilkDetails />}  />
       </Routes>
     </BrowserRouter>
