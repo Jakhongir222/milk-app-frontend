@@ -3,35 +3,25 @@ import { MilkInterface } from './interface'
 import './MilkProducts.css'
 import milkImage from './milk.png'
 import { navigate } from '@reach/router'
-import MilkDetails from './MilkDetails'
 
 
 export default function MilkProducts () {
     const [products, setProducts] = useState<MilkInterface[]>([]);
     const [search, setSearch] = useState('');
     const [filter, setFilter] = useState('');
-    const [isLoading, setLoading] = useState(false);
     const [types, setTypes] = useState<string[]>([]);
     const [showTypes, setShowTypes] = useState(false);
     const baseUrl = 'http://localhost:8080/milk';
 
     useEffect(()=>{
-        setLoading(true);
         fetch(baseUrl)
             .then(data=> data.json())
             .then((data: MilkInterface[]) => {
                 setProducts(data);
                 setTypes(Array.from(new Set(data.map(product => product.type))));
             })
-        setLoading(false)
     }, [])
-
-    const navigateSpecificProductHandler = (id: string) => {
-    navigate(`/products/${id}`);
-  };
     
-
-    if(isLoading) return <p>Loading</p>
     if(!products) return <p>There are no Milk</p> 
 
     const filteredProducts = products
