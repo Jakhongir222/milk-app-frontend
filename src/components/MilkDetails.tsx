@@ -2,11 +2,13 @@ import milkImage from './milk.png'
 import { MilkInterface } from './interface'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export default function MilkDetails (){
     const [product, setProduct] = useState<MilkInterface | null>(null);
     const [orderQuantity, setOrderQuantity] = useState(0);
     const { id } = useParams()
+    const navigate = useNavigate();
     const baseUrl = `http://localhost:8080/milk/${id}`;
 
     useEffect(()=>{
@@ -32,6 +34,7 @@ export default function MilkDetails (){
                     <span>{orderQuantity} liters</span>
                 </label>
                 <button>Order</button>
+                <button onClick={() => navigate(`/milk`)} >Keep shopping</button>
             </div>
         </div>
     );
