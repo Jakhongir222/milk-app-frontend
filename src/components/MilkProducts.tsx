@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { MilkInterface } from './interface'
 import './MilkProducts.css'
 import milkImage from './milk.png'
-import { navigate } from '@reach/router'
-
+import { useNavigate } from 'react-router-dom';
 
 export default function MilkProducts () {
     const [products, setProducts] = useState<MilkInterface[]>([]);
@@ -11,6 +10,7 @@ export default function MilkProducts () {
     const [filter, setFilter] = useState('');
     const [types, setTypes] = useState<string[]>([]);
     const [showTypes, setShowTypes] = useState(false);
+    const navigate = useNavigate();
     const baseUrl = 'http://localhost:8080/milk';
 
     useEffect(()=>{
@@ -45,12 +45,13 @@ export default function MilkProducts () {
                         </div>))}
                 </div>)}  
             {filteredProducts.map((product) => (
-                <a key={product.id} className='milk-card' onClick={() => navigate(`/milk/${product.id}`)}>
+                <a key={product.id} className='milk-card' onClick={() => navigate(`/milk/${product.id}`)}
+                >
                     <img className= "milk-image" src={milkImage}/>
                     <div className= "milk-name">{product.name}</div>
                     <div className= "milk-type">{product.type}</div>
                     <div className= "milk-storage">{product.storage + " liters"}</div>
                 </a>))}
         </div>
-      ) 
+    ) 
 }
