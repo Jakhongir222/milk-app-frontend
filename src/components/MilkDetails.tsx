@@ -3,6 +3,7 @@ import { MilkInterface } from './interface'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import './MilkDetails.css'
 
 export default function MilkDetails (){
     const [product, setProduct] = useState<MilkInterface | null>(null);
@@ -33,8 +34,8 @@ export default function MilkDetails (){
                     <input type="range" min={0} max={product.storage} value={orderQuantity} onChange={(e) => setOrderQuantity(parseInt(e.target.value))} className="slider"  />
                     <span>{orderQuantity} liters</span>
                 </label>
-                <button>Order</button>
-                <button onClick={() => navigate(`/milk`)} >Keep shopping</button>
+                <button className='btn'>Order</button>
+                <button className='btn' onClick={() => navigate(`/milk`)} >Keep shopping</button>
             </div>
         </div>
     );
