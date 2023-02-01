@@ -11,7 +11,7 @@ export default function MilkProducts () {
     const [types, setTypes] = useState<string[]>([]);
     const [showTypes, setShowTypes] = useState(false);
     const navigate = useNavigate();
-    const baseUrl = 'http://localhost:8080/milk';
+    const baseUrl = 'https://milk-app-backend-production.up.railway.app/milk';
 
     useEffect(()=>{
         fetch(baseUrl)
@@ -45,8 +45,7 @@ export default function MilkProducts () {
                         </div>))}
                 </div>)}  
             {filteredProducts.map((product) => (
-                <a key={product.id} className='milk-card' onClick={() => navigate(`/milk/${product.id}`)}
-                >
+                <a key={product.id} className='milk-card' onClick={() => navigate(`/milk/${product.id}`)}>
                     <img className= "milk-image" src={milkImage}/>
                     <div className= "milk-name">{product.name}</div>
                     <div className= "milk-type">{product.type}</div>

@@ -10,7 +10,7 @@ export default function MilkDetails (){
     const [orderQuantity, setOrderQuantity] = useState(0);
     const { id } = useParams()
     const navigate = useNavigate();
-    const baseUrl = `http://localhost:8080/milk/${id}`;
+    const baseUrl = `https://milk-app-backend-production.up.railway.app/milk/${id}`;
 
     useEffect(()=>{
         fetch(baseUrl)
