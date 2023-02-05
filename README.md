@@ -1,5 +1,6 @@
 # Milk App Frontend
 This repository contains the frontend of the Milk App, a full stack application that allows users to view and filter different types of milk.
+Here is the link for the backend of this [app](https://github.com/Jakhongir222/milk-app-backend.git)
 
 ## Technologies
 - React with TypeScript
